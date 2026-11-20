@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-ipa:
-    runs-on: macos-15
+    runs-on: macos-26
     timeout-minutes: 60
     steps:
       - name: Checkout
@@ -29,6 +29,17 @@ jobs:
         run: |
           cd ios
           pod install --repo-update
+
+      - name: Select Xcode 26
+        run: |
+          echo "== installed Xcodes =="
+          ls -d /Applications/Xcode*.app || true
+          XC=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -n 1)
+          if [ -z "$XC" ]; then XC="/Applications/Xcode.app"; fi
+          echo "Using $XC"
+          sudo xcode-select -s "$XC"
+          xcodebuild -version
+          swift --version
 
       - name: Build with xcodebuild (no signing)
         run: |
