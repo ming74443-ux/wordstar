@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "WordStar",
+    "slug": "wordstar",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "wordstar",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#FFFFFF",
+      "resizeMode": "contain"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.wordstar.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "CFBundleDisplayName": "单词星"
+      }
+    },
+    "android": {
+      "package": "com.wordstar.app",
+      "versionCode": 1
+    },
+    "plugins": [
+      "expo-status-bar",
+      "expo-sqlite",
+      "expo-asset"
+    ]
+  }
+}
